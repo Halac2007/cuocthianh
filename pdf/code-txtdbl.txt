@@ -1,0 +1,15 @@
+ <div class="item-textlink-1 clearfix">
+                  <a
+                    href="https://thoatvidiadem.co/chia-se/dau-khong-di-duoc-vi-thoat-vi-dia-dem-toi-da-cai-thien-nho-thao-duoc-nay.html?utm_source=Plo-Bottom4-Mobile&utm_medium=CPD&utm_campaign=CTV-TV"
+                    target="_blank"
+                    rel="Sponsored"
+                  >
+                    <div class="thumb">
+                      <img
+                        src="https://photo-cms-plo.zadn.vn/Uploaded/phucpham/2022_04_29/bdsb-965.png"
+                        alt="Ðau không di du?c vì THOÁT V? ÐIA Ð?M, ông Minh dã c?i thi?n nh? cách này!"
+                      />
+                    </div>
+                    <p class="item-link--text">Ðau không di du?c vì THOÁT V? ÐIA Ð?M, ông Minh dã c?i thi?n nh? cách này!</p></a
+                  >
+                </div>
