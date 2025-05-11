@@ -48,9 +48,10 @@
         <div class="wrap-bg">
             <div class="bg-top"></div>
         </div>
+        <div class="container">
         <div class="wrap-time">
             <div class="title-countdown">
-                <h4><i class="fa-regular fa-calendar"></i> Hạn nhận ảnh: 30-06-2025</h4>
+                <h2><i class="fa-regular fa-calendar"></i> Hạn nhận ảnh: 30-06-2025</h2>
             </div>
             <div id="countdown">
 
@@ -95,7 +96,7 @@
 
         <div class="wrap-topic">
             <div class="title-topic">
-                <h4>Chủ đề: TP.HCM Thành phố xanh, hiện đại và phát triển</h4>
+                <h2>Chủ đề: TP.HCM Thành phố xanh, hiện đại và phát triển</h2>
             </div>
             <div class="box-topic-album">
                 <div class="album">
@@ -136,7 +137,7 @@
 
         <div class="wrap-prize">
             <div class="title-prize">
-                <h4>GIẢI THƯỞNG</h4>
+                <h2>GIẢI THƯỞNG</h2>
             </div>
             <div class="box-prize">
                 <!-- tabs -->
@@ -178,50 +179,51 @@
                 <!--/ tabs -->
             </div>
         </div>
+
         <div class="wrap-examiner">
-            <div class="title-ex">BAN GIÁM KHẢO</div>
-            <div class="box-list">
-                <div class="card">
-                    <div class="thumb"> <img
-                            src="https://bcp.cdnchinhphu.vn/Uploaded/hatheluc/2017_11_19/TANT7229%20copy.jpg"> </div>
-                    <div class="card-text">
-                        <p> <strong>Ông TRƯƠNG HÒA BÌNH</strong></p>
-                        <p class="title"> Chủ tịch danh dự </p>
-                        <p class="des"> Nguyên Ủy Viên Bộ Chính trị, nguyên Phó Thủ tướng Thường trực Chính phủ </p>
-                    </div>
+        <div class="team-section">
+        <h2>BAN GIÁM KHẢO</h2>
+        <div class="team-members">
+        <div class="member">
+                <div class="photo-hexagon">
+                    <img src="https://image.plo.vn/w850/Uploaded/2025/neyxqurkxq/2025_05_11/lenh-ngung-ban-an-do-691-6296.jpg.webp" alt="Aaron Loeb">
                 </div>
-                <div class="card">
-                    <div class="thumb"> <img
-                            src="https://static-cms-plo.zadn.vn/v3/dtb-web/styles/img/bantochuc/Ong-Mai-Ngoc-Phuoc.png">
-                    </div>
-                    <div class="card-text">
-                        <p> <strong>Ông MAI NGỌC PHƯỚC</strong></p>
-                        <p class="title"> Trưởng ban chỉ đạo chương trình </p>
-                        <p class="des"> Tổng Biên tập Báo Pháp Luật TP.HCM </p>
-                    </div>
+                <h5>Aaron Loeb</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin interdum purus non tortor porttitor, id volutpat mauris gravida. Vivamus vitae vulputate elit. Phasellus ac libero eget enim vulputate malesuada</p>
+            </div>
+            <div class="member">
+                <div class="photo-hexagon">
+                    <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Adeline Palmerston">
                 </div>
-                <div class="card">
-                    <div class="thumb"> <img
-                            src="https://static-cms-plo.zadn.vn/v3/dtb-web/styles/img/bantochuc/Ong-Nguyen-Thai-Binh.png">
-                    </div>
-                    <div class="card-text">
-                        <p> <strong>Ông NGUYỄN THÁI BÌNH</strong></p>
-                        <p class="title"> Trưởng ban tổ chức </p>
-                        <p class="des"> Phó Tổng Biên tập Báo Pháp Luật TP.HCM </p>
-                    </div>
+                <h5>Adeline Palmerston</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin interdum purus non tortor porttitor, id volutpat mauris gravida. Vivamus vitae vulputate elit. Phasellus ac libero eget enim vulputate malesuada</p>
+            </div>
+            <div class="member">
+                <div class="photo-hexagon">
+                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Juliana Silva">
                 </div>
-                <div class="card">
-                    <div class="thumb"> <img
-                            src="https://static-cms-plo.zadn.vn/v3/dtb-web/styles/img/bantochuc/Hoa-hau-Nguyen-Phuong-Khanh.png">
-                    </div>
-                    <div class="card-text">
-                        <p> <strong>Hoa hậu NGUYỄN PHƯƠNG KHÁNH</strong></p>
-                        <p class="title"> Đại sứ chương trình </p>
-                        <p class="des"> Hoa hậu Trái đất 2018 </p>
-                    </div>
+                <h5>Nhiếp ảnh gia Ngô Trần Hải An</h5>
+                <p>còn được biết đến với nghệ danh Quỷ Cốc Tử, là một nhiếp ảnh gia, phóng viên ảnh và blogger du lịch nổi tiếng tại Việt Nam.</p>
+            </div>
+            <div class="member">
+                <div class="photo-hexagon">
+                    <img src="https://www.w3schools.com/w3images/avatar2.png" alt="Aaron Loeb">
                 </div>
+                <h5>Nữ nhiếp ảnh gia Khánh Phan</h5>
+                <p>Đạt được nhiều giải thưởng nhiếp ảnh quốc tế danh giá, nổi bật là giải Grand Prize tại cuộc thi SkyPixel Annual Photo & Video Contest lần thứ 8,….</p>
+            </div>
+            <div class="member">
+                <div class="photo-hexagon">
+                    <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Adeline Palmerston">
+                </div>
+                <h5>Nhiếp ảnh gia Nguyễn Á</h5>
+                <p>Là nhiếp ảnh gia với 40 năm kinh nghiệm và là hội viên Hội Nghệ sĩ Nhiếp ảnh Việt Nam. Anh cũng đạt danh hiệu “Nghệ sĩ nhiếp ảnh xuất sắc" (E.VAPA) - Hội Nghệ sĩ Nhiếp ảnh Việt Nam.”</p>
             </div>
         </div>
+    </div>
+        </div>
+        </div>
+        
 
 
         <script>
