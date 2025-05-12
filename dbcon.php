@@ -1,14 +1,15 @@
 <?php
-
 session_start();
 
-$host = "localhost"; /* Host name */
-$user = "root"; /* User */
-$password = ""; /* Password */
-$dbname = "uploadfile"; /* Database name */
+$host = "localhost";
+$username = "root";
+$password = "";
+$dbname = "uploadfile";
 
-$con = mysqli_connect($host, $user, $password,$dbname);
-// Check connection
-if (!$con) {
- die("Connection failed: " . mysqli_connect_error());
+try {
+    $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Kết nối thất bại: " . $e->getMessage());
 }
+?>
