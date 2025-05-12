@@ -124,14 +124,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
                 }
             }
 
-            if (count($uploadedFiles) > 0) {
-                echo "<div style='color: green;'>Tải lên thành công các tệp: " . implode(', ', $uploadedFiles) . "</div>";
-            } elseif (!$uploadErrors && isset($_FILES['fileanh']['tmp_name']) && count($_FILES['fileanh']['tmp_name']) > 0) {
-                echo "<div style='color: orange;'>Không có tệp nào được tải lên thành công. Vui lòng kiểm tra lại.</div>";
-            }
-        } else {
-            echo "<div style='color: yellow;'>Không có tệp ảnh nào được chọn để tải lên.</div>";
-        }
+            
+        } 
 
         // Cam kết giao dịch
         $conn->commit();
@@ -327,5 +321,202 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/data-province.js"></script>
     <script src="js/uploadfile.js"></script>
+
+    <!-- <script>
+function showError($element, message) {
+    $element.find('.error_mess').text(message).css('color', 'red');
+    $element.find('input, textarea').focus();
+}
+
+$('form').on('submit', function (e) {
+    let isValid = true;
+
+    const emailInput = $('input[name="email"]');
+    const phoneInput = $('input[name="sdt"]');
+    const files = $('input[name="fileanh[]"]')[0].files;
+
+    const email = emailInput.val().trim();
+    const phone = phoneInput.val().trim();
+    const title = $('input[name="tieude"]').val().trim();
+    const name = $('input[name="hoten"]').val().trim();
+    const tinhthanh = $('select[name="tinhthanh"]').val().trim();
+
+    // Kiểm tra nhập đủ các trường
+    if (!title) {
+        e.preventDefault();
+        showError($('input[placeholder="Tiêu đề (*)"]').closest('.input-group'), 'Vui lòng nhập tiêu đề.');
+        return false;
+    }
+    if (!name) {
+        e.preventDefault();
+        showError($('input[placeholder="Họ tên (*)"]').closest('.input-group'), 'Vui lòng nhập họ tên.');
+        return false;
+    }
+    if (!email) {
+        e.preventDefault();
+        showError($('input[placeholder="Địa chỉ email (*)"]').closest('.input-group'), 'Vui lòng nhập địa chỉ email.');
+        return false;
+    }
+    // Kiểm tra định dạng email
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        e.preventDefault();
+        showError($('input[placeholder="Địa chỉ email (*)"]').closest('.input-group'), 'Email không hợp lệ.');
+        return false;
+    }
+
+    if (!phone) {
+        e.preventDefault();
+        showError($('input[placeholder="Số điện thoại liên hệ (*)"]').closest('.input-group'), 'Vui lòng nhập số điện thoại.');
+        return false;
+    }
+    // Kiểm tra số điện thoại là số
+    const phonePattern = /^[0-9]{8,15}$/;
+    if (!phonePattern.test(phone)) {
+        e.preventDefault();
+        showError($('input[placeholder="Số điện thoại liên hệ (*)"]').closest('.input-group'), 'Số điện thoại không hợp lệ.');
+        return false;
+    }
+
+    if (!tinhthanh) {
+        e.preventDefault();
+        showError($('#province').closest('.box-province'), 'Vui lòng chọn tỉnh/thành phố.');
+        return false;
+    }
+
+    // Kiểm tra ảnh
+    if (files.length === 0) {
+        e.preventDefault();
+        alert('Vui lòng chọn ít nhất một ảnh.');
+        return false;
+    }
+
+    if (files.length > 5) {
+        e.preventDefault();
+        alert('Bạn chỉ có thể upload tối đa 5 ảnh.');
+        return false;
+    }
+
+    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+    for (let i = 0; i < files.length; i++) {
+        if (!allowedTypes.includes(files[i].type)) {
+            e.preventDefault();
+            alert('Ảnh ' + files[i].name + ' không đúng định dạng. Chỉ chấp nhận JPG, JPEG, PNG.');
+            return false;
+        }
+    }
+
+    return true;
+});
+</script> -->
+<script>
+$(document).ready(function () {
+    // Giới hạn tối đa 5 ảnh khi chọn
+    $('input[name="fileanh[]"]').on('change', function () {
+        const files = this.files;
+        if (files.length > 5) {
+            alert('Bạn chỉ có thể upload tối đa 5 ảnh.');
+            this.value = ''; // Reset input
+            return;
+        }
+
+        // Kiểm tra định dạng file ảnh
+        const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+        for (let i = 0; i < files.length; i++) {
+            if (!allowedTypes.includes(files[i].type)) {
+                alert('Chỉ hỗ trợ các định dạng ảnh JPEG, JPG, PNG.');
+                this.value = '';
+                return;
+            }
+        }
+    });
+
+    // Chỉ cho nhập số ở ô số điện thoại
+    $('input[name="sdt"]').on('input', function () {
+        this.value = this.value.replace(/\D/g, '');
+    });
+
+    // Kiểm tra khi submit
+    $('.send_post').on('click', function (e) {
+        const tieude = $('input[name="tieude"]').val().trim();
+        const hoten = $('input[name="hoten"]').val().trim();
+        const email = $('input[name="email"]').val().trim();
+        const sdt = $('input[name="sdt"]').val().trim();
+        const tinhthanh = $('select[name="tinhthanh"]').val();
+        const quanhuyen = $('select[name="quanhuyen"]').val();
+        const noidung = $('textarea[name="noidung"]').val().trim();
+        const fileanh = $('input[name="fileanh[]"]')[0].files;
+
+        // Regex kiểm tra email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!tieude) {
+            alert('Vui lòng nhập tiêu đề.');
+            e.preventDefault();
+            return;
+        }
+
+        if (!hoten) {
+            alert('Vui lòng nhập họ tên.');
+            e.preventDefault();
+            return;
+        }
+
+        if (!email || !emailRegex.test(email)) {
+            alert('Vui lòng nhập địa chỉ email hợp lệ.');
+            e.preventDefault();
+            return;
+        }
+
+        if (!sdt) {
+            alert('Vui lòng nhập số điện thoại.');
+            e.preventDefault();
+            return;
+        }
+
+        if (!tinhthanh) {
+            alert('Vui lòng chọn tỉnh/thành phố.');
+            e.preventDefault();
+            return;
+        }
+
+        if (!quanhuyen) {
+            alert('Vui lòng chọn quận/huyện.');
+            e.preventDefault();
+            return;
+        }
+
+        if (!noidung) {
+            alert('Vui lòng nhập nội dung.');
+            e.preventDefault();
+            return;
+        }
+
+        if (fileanh.length === 0) {
+            alert('Vui lòng chọn ít nhất 1 ảnh.');
+            e.preventDefault();
+            return;
+        }
+
+        if (fileanh.length > 5) {
+            alert('Bạn chỉ có thể upload tối đa 5 ảnh.');
+            e.preventDefault();
+            return;
+        }
+
+        for (let i = 0; i < fileanh.length; i++) {
+            const type = fileanh[i].type;
+            if (!['image/jpeg', 'image/jpg', 'image/png'].includes(type)) {
+                alert('Chỉ hỗ trợ các định dạng ảnh JPEG, JPG, PNG.');
+                e.preventDefault();
+                return;
+            }
+        }
+    });
+});
+</script>
+
+
+
   </body>
 </html>
